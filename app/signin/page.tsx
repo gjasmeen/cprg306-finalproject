@@ -1,20 +1,20 @@
 'use client';
-import {Eye, EyeOff} from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
-
+import { useRouter } from 'next/navigation'
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
-
+  const router = useRouter();
   return (
     <div className="min-h-screen flex">
       {/* Left Side*/}
       <div className="flex-1 flex items-center justify-center p-12 relative">
         <Image
-            src="/images/shapes/background.png"
-            alt="Background Gradient"
-            fill
-            className="object-cover object-center"
+          src="/images/shapes/background.png"
+          alt="Background Gradient"
+          fill
+          className="object-cover object-center"
         />
         <div className="text-center">
           <Image
@@ -41,7 +41,12 @@ export default function SignIn() {
           <div className="text-center mb-8 mt-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">Sign In</h1>
           </div>
-          <form className="space-y-6">
+          <form className="space-y-6"
+            onSubmit={(e) => {
+              e.preventDefault();
+              router.push('/homepage');
+
+            }}>
             <div>
               <input
                 type="email"
@@ -61,7 +66,7 @@ export default function SignIn() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
               >
-                {showPassword ? <EyeOff className="w-5 h-5"/> : <Eye className="w-5 h-5"/>}
+                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>
             </div>
 

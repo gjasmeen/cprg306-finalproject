@@ -11,18 +11,18 @@ export default function Home() {
     <div className="min-h-screen text-white overflow-hidden relative">
       {/* Background Gradient */}
       <div>
-        <Image 
-          src="/images/shapes/background.png" 
-          alt="Background Gradient" 
+        <Image
+          src="/images/shapes/background.png"
+          alt="Background Gradient"
           fill
           className="object-cover object-center"
         />
       </div>
       {/* Backdrop */}
-      <div className= "absolute top right-[5%]">
-        <Image 
-          src="/images/shapes/backdrop.png" 
-          alt="Backdrop" 
+      <div className="absolute top right-[5%]">
+        <Image
+          src="/images/shapes/backdrop.png"
+          alt="Backdrop"
           width={650}
           height={900}
         />
@@ -30,10 +30,10 @@ export default function Home() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Punching Bag */}
         <div className="absolute top-0 right-[7%] opacity-40">
-          <Image 
-            src="/images/equipments/punching bag.png" 
-            alt="Punching Bag" 
-            width={290} 
+          <Image
+            src="/images/equipments/punching bag.png"
+            alt="Punching Bag"
+            width={290}
             height={430}
             className="drop-shadow-2xl"
           />
@@ -41,10 +41,10 @@ export default function Home() {
 
         {/* Handgrip */}
         <div className="absolute top-10 right-[30%] rotate-[-25deg] opacity-30">
-          <Image 
-            src="/images/equipments/handgrip.png" 
-            alt="Handgrip" 
-            width={240} 
+          <Image
+            src="/images/equipments/handgrip.png"
+            alt="Handgrip"
+            width={240}
             height={160}
             className="drop-shadow-2xl"
           />
@@ -52,20 +52,20 @@ export default function Home() {
 
         {/* Barbell */}
         <div className="absolute top-[15%] right-[-4%]">
-          <Image 
-            src="/images/equipments/barbell.png" 
-            alt="Barbell" 
-            width={900} 
+          <Image
+            src="/images/equipments/barbell.png"
+            alt="Barbell"
+            width={900}
             height={700}
           />
         </div>
 
         {/* Bananas */}
         <div className="absolute bottom-[-10] right-13">
-          <Image 
-            src="/images/foods/bananas.png" 
-            alt="Bananas" 
-            width={630} 
+          <Image
+            src="/images/foods/bananas.png"
+            alt="Bananas"
+            width={630}
             height={480}
             className="drop-shadow-2xl"
           />
@@ -77,20 +77,20 @@ export default function Home() {
         <nav className="flex justify-between items-center mb-16">
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 relative">
-              <Image 
-                src="/images/branding/fitMONKEYLogo.png" 
-                alt="fitMONKEY Logo" 
-                width={56} 
+              <Image
+                src="/images/branding/fitMONKEYLogo.png"
+                alt="fitMONKEY Logo"
+                width={56}
                 height={56}
                 className="object-contain"
               />
             </div>
             {/* fitMONKEY Text */}
             <div>
-              <Image 
-                src="/images/branding/fitMONKEY.png" 
-                alt="fitMONKEY" 
-                width={180} 
+              <Image
+                src="/images/branding/fitMONKEY.png"
+                alt="fitMONKEY"
+                width={180}
                 height={48}
                 className="object-contain"
               />
@@ -115,20 +115,20 @@ export default function Home() {
             </h1>
 
             <p className="text-xl text-white/90 max-w-lg">
-              Track every rep, crush every goal, and turn consistency into your super power. 
-              Whether you're a gym beast, a home workout warrior, or just starting your fitness journey, 
+              Track every rep, crush every goal, and turn consistency into your super power.
+              Whether you're a gym beast, a home workout warrior, or just starting your fitness journey,
               fitMONKEY makes it fun, simple and engaging to keep track of your journey.
             </p>
 
             <div className="flex items-center gap-4">
               {/* Get Started */}
-              <Link 
+              <Link
                 href="/signup"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 className="px-10 py-4 bg-black hover:bg-zinc-900 text-white font-semibold text-lg rounded-4xl transition-all active:scale-95 flex items-center gap-3 group"
               >
-              Get started
+                Get started
               </Link>
             </div>
           </div>
