@@ -12,45 +12,45 @@ function LandingPage() {
       {/* Background Decorative Fitness Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Punching Bag */}
-        <div className="absolute top-20 right-[15%] w-32 h-64 opacity-40">
+        <div className="absolute top-0 right-[7%] opacity-40">
           <Image 
-            src="/assets/images/equipments/punching bag.png" 
+            src="/images/equipments/punching bag.png" 
             alt="Punching Bag" 
-            width={180} 
-            height={320}
+            width={290} 
+            height={430}
             className="drop-shadow-2xl"
           />
         </div>
 
         {/* Handgrip */}
-        <div className="absolute top-32 left-[12%] w-24 h-32 rotate-[-25deg] opacity-30">
+        <div className="absolute top-10 right-[30%] rotate-[-25deg] opacity-30">
           <Image 
-            src="/assets/images/equipments/handgrip.png" 
+            src="/images/equipments/handgrip.png" 
             alt="Handgrip" 
-            width={140} 
+            width={240} 
             height={160}
             className="drop-shadow-2xl"
           />
         </div>
 
         {/* Barbell */}
-        <div className="absolute top-1/3 right-1/4 w-[420px] opacity-90 -rotate-12">
+        <div className="absolute top-[15%] right-[-4%] opacity-90">
           <Image 
-            src="/assets/images/equipments/barbell.png" 
+            src="/images/equipments/barbell.png" 
             alt="Barbell" 
-            width={520} 
-            height={280}
+            width={900} 
+            height={700}
             className="drop-shadow-2xl"
           />
         </div>
 
         {/* Bananas */}
-        <div className="absolute bottom-20 right-12 w-80 opacity-95">
+        <div className="absolute bottom-[-10] right-13 opacity-95">
           <Image 
-            src="/assets/images/equipments/bananas.png" 
+            src="/images/foods/bananas.png" 
             alt="Bananas" 
-            width={420} 
-            height={280}
+            width={630} 
+            height={480}
             className="drop-shadow-2xl"
           />
         </div>
@@ -63,7 +63,7 @@ function LandingPage() {
             {/* Your actual logo */}
             <div className="w-14 h-14 relative">
               <Image 
-                src="/assets/images/branding/fitMONKEYLogo.png" 
+                src="/images/branding/fitMONKEYLogo.png" 
                 alt="fitMONKEY Logo" 
                 width={56} 
                 height={56}
@@ -73,7 +73,7 @@ function LandingPage() {
             {/* fitMONKEY Text */}
             <div>
               <Image 
-                src="/assets/images/branding/fitMONKEY.png" 
+                src="/images/branding/fitMONKEY.png" 
                 alt="fitMONKEY" 
                 width={180} 
                 height={48}
