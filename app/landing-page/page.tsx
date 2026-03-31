@@ -8,8 +8,16 @@ function LandingPage() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#a8cd00] via-[#A26A00] to-[#9D7C00] text-white overflow-hidden relative">
-      {/* Background Decorative Fitness Elements */}
+    <div className="min-h-screen text-white overflow-hidden relative">
+      {/* Background Gradient */}
+      <div>
+        <Image 
+          src="/images/shapes/background.png" 
+          alt="Gradient Background" 
+          fill
+          className="object-cover object-center"
+        />
+      </div>
       {/* Backdrop */}
       <div className= "absolute top right-[5%]">
         <Image 
