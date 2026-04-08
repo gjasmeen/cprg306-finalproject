@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { searchFoo, Food } from "@/lib/api/food/food";
 import { createClient } from "@supabase/supabase-js";
+import { User } from "@supabase/supabase-js";
 
 export const dynamic = "force-dynamic";
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -19,7 +20,7 @@ function extractToken(req: NextRequest): string | null {
 }
 
 
-async function ensureUser(supabase: ReturnType<typeof supabaseClientWithToken>, user: any) {
+async function ensureUser(supabase: ReturnType<typeof supabaseClientWithToken>, user: User) {
   const fullName: string = user.user_metadata?.name || user.user_metadata?.full_name || "";
   const [first_name, ...rest] = fullName.split(" ");
   await supabase.from("users").upsert({
