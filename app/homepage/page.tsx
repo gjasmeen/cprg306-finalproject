@@ -234,7 +234,7 @@ export default function Homepage() {
           setGoalForm(newGoal[0]);
         }
       } else {
-        // Update thành công
+      
         setGoal(updatedData[0]);
         setGoalForm(updatedData[0]);
       }
