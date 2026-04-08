@@ -17,8 +17,7 @@ function extractToken(req: NextRequest): string | null {
   return authHeader.slice(7).trim() || null;
 }
 
-// Đảm bảo user tồn tại trong bảng "users" trước khi insert
-// vì cardios và strengths có FK reference đến bảng users
+
 async function ensureUser(supabase: ReturnType<typeof supabaseClientWithToken>, user: any) {
   const fullName: string = user.user_metadata?.name || user.user_metadata?.full_name || "";
   const [first_name, ...rest] = fullName.split(" ");
@@ -93,7 +92,7 @@ export async function POST(req: NextRequest) {
     const { data: { user }, error: userError } = await supabase.auth.getUser();
     if (userError || !user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // ✅ upsert vào bảng "users" trước để FK không bị lỗi
+
     await ensureUser(supabase, user);
 
     const user_id = user.id;
