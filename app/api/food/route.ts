@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
     const { data: { user }, error: userError } = await supabase.auth.getUser();
     if (userError || !user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // upsert user vào bảng "users" đúng schema trước khi insert nutritions
+ 
     await ensureUser(supabase, user);
     const user_id = user.id;
     const body = await req.json();
