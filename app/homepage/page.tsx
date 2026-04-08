@@ -38,7 +38,7 @@ export default function Homepage() {
   const [editingGoal, setEditingGoal] = useState(false);
   const [goalForm, setGoalForm] = useState<Partial<goal>>({});
   const [isEditing, setEditing] = useState(false);
-  const [isDoneSummary, setDoneSummary] = useState(false);
+
   const [form, setForm] = useState<Partial<userProfile>>({});
   const [file, setFile] = useState<File | null>(null);
   // load user profile
