@@ -353,7 +353,7 @@ export default function FoodPage() {
             currentDate={currentDate}
             onAddFood={(food, meal) => {
               const setter = meal === 'Breakfast' ? setBreakfast : meal === 'Lunch' ? setLunch : setDinner;
-              setter(prev => [...prev, food]);
+              setter(prev => [...prev, { ...food, meal }]);
               setShowAddFood(false);
             }}
             onCancel={() => setShowAddFood(false)}
