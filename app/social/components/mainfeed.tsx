@@ -52,8 +52,7 @@ export default function MainFeed({user} : MainFeedProps){
             {posts.map(post => (
                 <PostCard key={post.id} post={post} user={user} />
                 
-            ))}#
-            
+            ))}
         </div>
     );
 }

@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/app/utils/supabase";
-
-import Sidebar from "@/components/sidebar";
 import Mainfeed from "./components/mainfeed";
 import InputPost from "./components/inputpost";
 import FriendsSidebar from "./components/friendssidebar";
+import Sidebar from "@/components/sidebar";
 
 export default function SocialPage() {
     const [user, setUser] = useState<any>(null);
@@ -18,6 +17,7 @@ export default function SocialPage() {
     };
     loadUser();
 }, []);
+
 if (!user) {
     return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center">

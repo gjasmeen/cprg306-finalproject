@@ -53,4 +53,4 @@ export default function InputPost({user}: {user: any}) {
         
 
     );
-}   
+}
