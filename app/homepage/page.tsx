@@ -398,7 +398,8 @@ export default function Homepage() {
             />
           </div>
           <Image
-            src={user?.avatar_url || defaultAvatar}
+           // src={user?.avatar_url || defaultAvatar}
+            src={user?.avatar_url || avatar}
             alt="avatar"
             width={100}
             height={100}
