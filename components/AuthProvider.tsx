@@ -4,6 +4,18 @@ import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { supabase } from "@/app/utils/supabase";
 
+//to ensure supabase user exists in firebase for social features
+import { setDoc, doc} from "firebase/firestore";
+import { db } from "@/app/social/_utils/firebase";
+
+async function syncUserToFirebase(user: any) {
+  await setDoc(doc(db, "users", user.id), {
+    displayName: user.user_metadata?.full_name ?? "Unknown User",
+    photoURL: user.user_metadata?.avatar_url ?? null,
+    email: user.email
+  });
+}
+
 const publicRoutes = ["/", "/signin", "/signup", 'forgotPassword'];
 
 export default function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -18,6 +30,10 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
       try {
         const { data: { user } } = await supabase.auth.getUser();
 
+        if (user) {
+          await syncUserToFirebase(user);
+}
+
         if (!user) {
 
           if (!publicRoutes.includes(pathname)) {
@@ -27,6 +43,8 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
           if (isMounted) setLoading(false);
           return;
         }
+        //sync supabase user to firebase for social features
+        await syncUserToFirebase(user);
 
         const { data: existingUser } = await supabase
           .from("users")

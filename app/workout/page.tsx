@@ -7,6 +7,18 @@ import AddStrength from '@/components/addStrength';
 import { useState, useEffect, useCallback } from 'react';
 import { format, addDays } from 'date-fns';
 import { supabase } from '../utils/supabase';
+import ShareCard from '@/components/shareCard';
+
+//fetch loged in user
+const [user,setUser] = useState<any>(null);
+useEffect(() => {
+    const loadUser = async () => {
+        const { data: { user } } = await supabase.auth.getUser();
+        setUser(user);
+    };
+    loadUser();
+}, []);
+
 
 type Cardio = {
   id: string,
@@ -260,6 +272,19 @@ export default function WorkOut() {
 
   return (
     <div className="flex min-h-screen bg-black text-white gap-50">
+
+
+      {/* Add ShareCard for fitness summary */}
+      {renderCardioSection('Cardiovascular', cardioExercises)}
+      {renderStrengthSection('Strength', strengthExercises)}
+      {user &&( 
+      <ShareCard 
+      cardio={cardioExercises}
+      strength={strengthExercises}
+      user={user} 
+      /> 
+      )}
+  
       <div className="w-64 sticky top-0 h-screen flex flex-col justify-between">
         <Sidebar />
       </div>
