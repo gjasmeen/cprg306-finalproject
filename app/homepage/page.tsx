@@ -4,7 +4,10 @@ import Image from "next/image";
 import { Edit } from 'lucide-react'
 import { supabase } from "../utils/supabase";
 import { useEffect, useState } from "react";
-import defaultAvatar from '../../public/images/default-avatar.jpg'
+//import defaultAvatar from '../../public/images/default-avatar.jpg'
+const avatar = "/images/default-avatar.jpg";
+
+
 type userProfile = {
   id: string;
   first_name: string,
