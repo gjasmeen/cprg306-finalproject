@@ -9,13 +9,14 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBtt9iOi5eq_EzNLvLKZ3o_IoqQyS8j2tM",
-  authDomain: "fitmonkey-c9b46.firebaseapp.com",
-  projectId: "fitmonkey-c9b46",
-  storageBucket: "fitmonkey-c9b46.firebasestorage.app",
-  messagingSenderId: "439270934093",
-  appId: "1:439270934093:web:603b3e017259c53a4bbe04"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
