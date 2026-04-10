@@ -7,41 +7,47 @@ import InputPost from "./components/inputpost";
 import FriendsSidebar from "./components/friendssidebar";
 import Sidebar from "@/components/sidebar";
 
-export default function SocialPage() {
+export default function Page() {
     const [user, setUser] = useState<any>(null);
-     
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         const loadUser = async () => {
-            const { data: { user } } = await supabase.auth.getUser();
-            setUser(user);
-    };
-    loadUser();
-}, []);
+        const { data, error } = await supabase.auth.getUser();
 
-if (!user) {
-    return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        Loading...
-    </div>
-    );
-}
-return (
+        if (error) {
+            console.error("Error fetching user:", error);
+    }
+        setUser(data?.user ?? null);
+        setLoading(false);
+    };
+
+    loadUser();
+  }, []);
+
+  return (
     <div className="flex min-h-screen bg-black text-white">
         {/* LEFT SIDEBAR */}
         <div className="w-64 sticky top-0 h-screen flex flex-col justify-between">
-                <Sidebar />
+            <Sidebar />
         </div>
 
-        {/* MAIN FEED */}
-        <div className="flex-1 p-6 space-y-6">
+      {/* MAIN FEED */}
+      <div className="flex-1 p-6 space-y-6">
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
             <InputPost user={user} />
             <Mainfeed user={user} />
-        </div>
+          </>
+        )}
+      </div>
 
-        {/* FRIENDS SIDEBAR */}
-        <div className="w-64 border-l border-zinc-800">
-            <FriendsSidebar user={user} />
-        </div>
+      {/* FRIENDS SIDEBAR */}
+      <div className="w-64 border-l border-zinc-800">
+        <FriendsSidebar user={user} />
+      </div>
 
     </div>
   );
