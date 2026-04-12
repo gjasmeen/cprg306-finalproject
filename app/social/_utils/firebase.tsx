@@ -12,9 +12,13 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
-// Initialize Firebase only if it hasn't been already
+//Initialize App safely
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+//Initialize Firestore
 const db = getFirestore(app);
-const storage = getStorage(app);
+
+//Initialize Storage safely (checks if bucket exists to avoid the "No bucket" crash)
+const storage = firebaseConfig.storageBucket ? getStorage(app) : null;
 
 export { app, db, storage };
