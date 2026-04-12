@@ -7,6 +7,7 @@ import Mainfeed from "./components/mainfeed";
 import InputPost from "./components/inputpost";
 import FriendsSidebar from "./components/friendssidebar";
 import Sidebar from "@/components/sidebar";
+//import {addFriend, removeFriend} from "./_utils/friends"; 
 
 export default function Page() {
     const [user, setUser] = useState<any>(null);
