@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import * as htmlToImage from 'html-to-image';
 import { db } from '@/app/social/_utils/firebase'; 
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { Share2, Loader2, Download, Timer, Flame, Dumbbell, Zap, Send } from 'lucide-react';
+import { Share2, Loader2, Download, Timer, Flame, Send } from 'lucide-react';
 
 interface ShareCardProps {
   cardio: any[];
@@ -74,7 +74,7 @@ export default function ShareCard({ cardio, strength, user }: ShareCardProps) {
             link.download = `workout-to-share.png`;
             link.href = dataUrl;
             link.click();
-            alert("Native sharing not supported on this browser. Image downloaded instead.");
+            alert("Native sharing not supported on this browser. Image downloaded instead");
           }
         }
       }

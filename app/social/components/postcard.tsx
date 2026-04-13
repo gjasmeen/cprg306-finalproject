@@ -22,7 +22,7 @@ export default function PostCard({ post, user }: PostCardProps) {
   const isOwner = post.userId === myId;
   const likedByMe = post.likes?.includes(myId);
 
-  //Sync comments from Firebase
+  //comments from Firebase
   useEffect(() => {
     if (!post.id) return;
     const q = query(collection(db, "posts", post.id, "comments"), orderBy("timestamp", "asc"));
@@ -86,16 +86,18 @@ export default function PostCard({ post, user }: PostCardProps) {
         )}
       </div>
 
-      {/* Workout Image*/}
-      {post.imageUrl && post.imageUrl.trim() !== "" ? (
-        <div className="rounded-2xl overflow-hidden border border-zinc-800 bg-black mb-4">
+     {/* Workout Image or Uploaded Photo */}
+    {(post.imageUrl || post.postImage) ? (
+      <div className="flex justify-center mb-4"> 
+        <div className="rounded-2xl overflow-hidden border border-zinc-800 bg-black w-full max-w-75 max-h-50 flex items-center justify-center p-4">
           <img 
-            src={post.imageUrl} 
-            className="w-full h-auto object-cover" 
+            src={post.postImage || post.imageUrl} 
+            className="w-full h-full object-contain" 
             alt="Workout Summary" 
           />
         </div>
-      ) : null}
+      </div>
+    ) : null}
 
       
 

@@ -272,8 +272,10 @@ export default function Homepage() {
         <Sidebar />
       </aside>
 
+      
       {/* MIDDLE: Main Content */}
       <div className="flex-1 flex flex-col gap-6">
+        
         <h1 className="text-yellow-400 font-bold mb-4 text-xl">
           <span
             onClick={() => handleStreakClick()}
